@@ -1,7 +1,9 @@
-FROM centos
-RUN cd /etc/yum.repos.d/
-RUN  sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
-RUN  sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
-RUN  yum update -y
-RUN yum -y install httpd
-CMD apachectl -DFOREGROUND
+FROM node 
+
+
+
+RUN apt-get install wget
+
+RUN wget http://homepages.laas.fr/smedjiah/tmp/SumService.js
+
+CMD ["node", "/SumService.js"]
