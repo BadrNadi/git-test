@@ -1,0 +1,16 @@
+name: Docker push to Hub
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Docker build and run
+        uses: mr-smithers-excellent/docker-build-push@v5
+        with:
+            image: coolwhiteguy/githubtest
+            username: ${{ secrets.DOCKER_USERNAME }}
+            password: ${{ secrets.DOCKER_PASSWORD }}
