@@ -8,11 +8,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Docker build and run
-        uses: mr-smithers-excellent/docker-build-push@v5
-        with:
-            image: coolwhiteguy/githubtest
-            registry: docker.io
-            dockerfile: ../
-            username: ${{ secrets.DOCKER_USERNAME }}
-            password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Docker build 
+        run: |
+          docker build -t dockertp ../
