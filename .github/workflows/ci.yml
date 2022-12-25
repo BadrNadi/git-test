@@ -1,9 +1,9 @@
 name: Docker push to Hub
 on:
   push:
-    branches: [master]
+    branches: [newbranch]
   pull_request:
-    branches: [master]
+    branches: [newbranch]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,5 +12,6 @@ jobs:
         uses: mr-smithers-excellent/docker-build-push@v5
         with:
             image: coolwhiteguy/githubtest
+            registry: registry-url.io
             username: ${{ secrets.DOCKER_USERNAME }}
             password: ${{ secrets.DOCKER_PASSWORD }}
